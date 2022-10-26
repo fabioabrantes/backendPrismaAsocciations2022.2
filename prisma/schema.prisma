@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Association {
+  id               Int      @id @default(autoincrement())
+  name             String
+  latitude         Float
+  longitude        Float
+  about            String?
+  instructions     String?
+  opening_hours    String?
+  open_on_weekends String?
+  created_at       DateTime @default(now())
+  updated_at       DateTime @default(now())
+  image            Image[]
+
+  @@map("associations")
+}
+
+model Image {
+  id         Int      @id @default(autoincrement())
+  path       String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  association       Association @relation(fields: [id_fk_association], references: [id])
+  id_fk_association Int
+
+  @@map("images")
+}
