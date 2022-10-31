@@ -9,13 +9,13 @@ import {ListDetailController} from '../modules/association/listDetail/ListDetail
 
 
 const routesAssociation = Router();
-
+const upload = multer(uploadConfig);
 
 const createController = new CreateController();
 
 const listDetailController = new ListDetailController();
 
-routesAssociation.post('/associations/register',createController.handle);
+routesAssociation.post('/associations/register',upload.array('images'),createController.handle);
 routesAssociation.get('/associations/detail/:id',listDetailController.handle);
 
 

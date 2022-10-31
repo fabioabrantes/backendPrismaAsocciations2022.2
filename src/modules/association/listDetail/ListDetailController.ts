@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {ListDetailUseCase} from './ListDetailUseCase';
-/* import AssociationView from '../views/association_view'; */
+import associationView from '../../../views/association_view';
 
 class ListDetailController{
 
@@ -11,7 +11,7 @@ class ListDetailController{
     
     const association = await listDetailUseCase.execute(Number(id));
     
-    return response.status(201).json();
+    return response.status(201).json(associationView.renderAssociation(association));
   }
 }
 

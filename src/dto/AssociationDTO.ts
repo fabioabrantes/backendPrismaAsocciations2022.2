@@ -1,13 +1,10 @@
-interface ImagePath{
+import {Association} from '@prisma/client';
+
+export interface Image{
+  id: number;
   path: string;
 }
-export type AssociationDTO = {
-  name: string;
-  latitude: number;
-  longitude: number;
-  about: string;
-  instructions: string;
-  opening_hours: string;
-  open_on_weekends: boolean;
-  imagesPath:ImagePath[];
+
+export type AssociationDTO = Association & {
+  image:Image[];
 }

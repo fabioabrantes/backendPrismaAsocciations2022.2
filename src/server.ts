@@ -13,7 +13,7 @@ app.use(cors());
 
 app.use(routes);
 
-//app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.use(exceptionsHandle);
 
