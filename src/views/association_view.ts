@@ -7,6 +7,9 @@ interface IImage{
 }
 
 export default {
+  renderManyAssociation(associations: AssociationDTO[]) {
+    return associations.map(association => this.renderAssociation(association));
+  },
   renderAssociation(association: AssociationDTO) {
     return {
       id: association.id,
@@ -23,7 +26,7 @@ export default {
   renderImage(image: Image):IImage {
     return {
       id: image.id,
-      url: `http://localhost:3000/uploads/${image.path}`, // o ideal seria colocar no .env
+      url: `http://localhost:3333/uploads/${image.path}`, // o ideal seria colocar no .env
     };
   },
   renderManyImages(images: Image[]):IImage[] {
