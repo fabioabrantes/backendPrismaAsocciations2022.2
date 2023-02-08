@@ -12,7 +12,7 @@ export async function associationValidate(dataAssociation:AssociationDTO):Promis
     about: Yup.string().max(300),
     instructions: Yup.string(),
     opening_hours: Yup.string(),
-    open_on_weekends: Yup.boolean(),
+    open_on_weekends: Yup.string(),
     images: Yup.array(
       Yup.object().shape({
         path: Yup.string().required(),

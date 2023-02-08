@@ -26,7 +26,7 @@ export default {
   renderImage(image: Image):IImage {
     return {
       id: image.id,
-      url: `http://localhost:3333/uploads/${image.path}`, // o ideal seria colocar no .env
+      url: `http://10.3.150.75:3333/uploads/${image.path}`, // o ideal seria colocar no .env
     };
   },
   renderManyImages(images: Image[]):IImage[] {
